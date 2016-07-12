@@ -12,7 +12,8 @@ Easy forms for EmberJS apps. Validations included. (Ember 2.x)
  
 ## Installation
   This is an ember-cli addon, so all you need is an ember install. 
-      ember install ember-chloroform
+  
+    `ember install ember-chloroform`
       
   Compatible with Ember 2.x
   
