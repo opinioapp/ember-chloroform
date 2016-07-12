@@ -1,14 +1,17 @@
+/**
+ * Copied from
+ * https://github.com/offirgolan/ember-cp-validations/blob/master/tests/dummy/app/components/validated-input.js
+ * @licence https://github.com/offirgolan/ember-cp-validations/blob/master/LICENSE.md
+ */
+
 import Ember from 'ember';
 import layout from '../templates/components/validated-input';
+import humanize from '../utils/humanize';
 const {
   isEmpty,
   computed,
   defineProperty,
 } = Ember;
-
-let humanize = function (string) {
-  return Ember.String.capitalize(Ember.String.underscore(string).split('_').join(' '));
-};
 
 export default Ember.Component.extend({
   layout,
@@ -40,11 +43,11 @@ export default Ember.Component.extend({
   isValid: computed.and('hasContent', 'validation.isValid', 'notValidating'),
   isInvalid: computed.oneWay('validation.isInvalid'),
   showErrorClass: computed.and('notValidating', 'showMessage', 'hasContent', 'validation'),
-  showErrorMessage: computed('validation.isDirty', 'isInvalid', 'didValidate', function() {
+  showErrorMessage: computed('validation.isDirty', 'isInvalid', 'didValidate', function () {
     return (this.get('validation.isDirty') || this.get('didValidate')) && this.get('isInvalid');
   }),
 
-  showWarningMessage: computed('validation.isDirty', 'validation.warnings.[]', 'isValid', 'didValidate', function() {
+  showWarningMessage: computed('validation.isDirty', 'validation.warnings.[]', 'isValid', 'didValidate', function () {
     return (this.get('validation.isDirty') || this.get('didValidate')) && this.get('isValid') && !isEmpty(this.get('validation.warnings'));
   })
 });
