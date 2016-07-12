@@ -2,7 +2,7 @@
 
 [Live Demo](https://opinioapp.github.io/ember-chloroform)
 
-This README outlines the details of collaborating on this Ember addon.
+Easy forms for EmberJS apps. Validations included.
 
 ## Installation
 

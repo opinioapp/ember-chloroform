@@ -1,7 +1,7 @@
 {
   "name": "ember-chloroform",
   "version": "0.1.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Easy forms for EmberJS apps. Validations included!",
   "directories": {
     "doc": "doc",
     "test": "tests"
