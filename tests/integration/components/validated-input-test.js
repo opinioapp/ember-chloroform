@@ -12,13 +12,4 @@ test('it renders', function(assert) {
   this.render(hbs`{{validated-input}}`);
 
   assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#validated-input}}
-      template block text
-    {{/validated-input}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
 });
