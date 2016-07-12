@@ -7,6 +7,8 @@ Easy forms for EmberJS apps. Validations included. (Ember 2.x)
 ## Features
  - uses `ember-cp-validations` for implementing validations support.
  - contextual components for input fields including submit buttons
+ - Label for input can passed as label property (optional). If label
+ is not passed, it is inferred from valuePath property.
  
 ## Installation
   This is an ember-cli addon, so all you need is an ember install. 
@@ -16,16 +18,21 @@ Easy forms for EmberJS apps. Validations included. (Ember 2.x)
   
 ## Usage
 * Template:
-   ```handlebars
+    ```handlebars
     {{#chloro-form model=model action='submit' as |f|}}
-        {{f.input valuePath='username' placeholder='your username'}}
-        {{f.input valuePath='password' placeholder='password goes here'}}
+        {{f.input valuePath='username' placeholder='your username' label='Username'}}
+        {{f.input valuePath='password' type='password' placeholder='password goes here'}}
         {{f.submit value="Login" class='button'}}
     {{/chloro-form}}
     ```
+    
+    - **`model` is required**. It's value is equal to the object on which the
+      form fields are defined. For example, if `username` and `password` 
+      are defined on the template's controller, then `model = this`.
+    - `label` property is optional.
  
-* Controller:
-  - Declare Validations (options):
+* Controller/Component:
+  - Declare Validations (optional):
       ```javascript
       import { validator, buildValidations } from 'ember-cp-validations';
       
@@ -36,12 +43,17 @@ Easy forms for EmberJS apps. Validations included. (Ember 2.x)
       });
       
       export default Ember.Controller.extend(Validations, {});
+      
+      //or if using in a Component's template
+      export default Ember.Component.extend(Validations, {});
       ```
       
-  - Handle the action mentioned in template:
+  - Handle the action declared in the template:
       ```javascript
       ...
-      export default Ember.Controller.extend(Validations, {      
+      export default Ember.Controller.extend(Validations, {
+        ...
+        
         actions: {
           submit () {
             //handle here
