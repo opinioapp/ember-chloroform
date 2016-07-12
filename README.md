@@ -2,13 +2,53 @@
 
 [Live Demo](https://opinioapp.github.io/ember-chloroform)
 
-Easy forms for EmberJS apps. Validations included.
+Easy forms for EmberJS apps. Validations included. (Ember 2.x)
 
+## Features
+ - uses `ember-cp-validations` for implementing validations support.
+ - contextual components for input fields including submit buttons
+ 
 ## Installation
-
-* `git clone` this repository
-* `npm install`
-* `bower install`
+  This is an ember-cli addon, so all you need is an ember install. 
+      ember install ember-chloroform
+      
+  Compatible with Ember 2.x
+  
+## Usage
+* Template:
+   ```handlebars
+    {{#chloro-form model=model action='submit' as |f|}}
+        {{f.input valuePath='username' placeholder='your username'}}
+        {{f.input valuePath='password' placeholder='password goes here'}}
+        {{f.submit value="Login" class='button'}}
+    {{/chloro-form}}
+    ```
+ 
+* Controller:
+  - Declare Validations (options):
+      ```javascript
+      import { validator, buildValidations } from 'ember-cp-validations';
+      
+      
+      const Validations = buildValidations({
+        username: validator('presence', true),
+        password: validator('presence', true)
+      });
+      
+      export default Ember.Controller.extend(Validations, {});
+      ```
+      
+  - Handle the action mentioned in template:
+      ```javascript
+      ...
+      export default Ember.Controller.extend(Validations, {      
+        actions: {
+          submit () {
+            //handle here
+          }
+        }
+      });
+      ```
 
 ## Running
 
