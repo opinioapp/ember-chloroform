@@ -1,0 +1,17 @@
+<div class="columns small-12 large-6 small-centered">
+    <h2 class="title">Ember Chloroform </h2>
+
+    <div class={{concat 'callout secondary ' (if this.validations.isInvalid 'alert' 'success')}}>
+        {{#if this.validations.isInvalid}}
+          This form has some validation errors!
+        {{else}}
+          No Errors!
+        {{/if}}
+    </div>
+
+  {{#chloro-form model=this action='submit' as |f|}}
+    {{f.input valuePath='username' autofocus='autofocus' placeholder='your username'}}
+    {{f.input valuePath='password' placeholder='password goes here'}}
+    {{f.submit value="Login" class='button expanded'}}
+  {{/chloro-form}}
+</div>

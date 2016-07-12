@@ -1,0 +1,8 @@
+<form onsubmit={{action 'submit'}}>
+  {{yield
+    (hash
+      input=(component 'validated-input' model=model)
+      submit=(component 'validated-submit' model=model)
+    )
+  }}
+</form>

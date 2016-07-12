@@ -1,0 +1,1 @@
+export { default } from 'ember-chloroform/components/validated-submit';
