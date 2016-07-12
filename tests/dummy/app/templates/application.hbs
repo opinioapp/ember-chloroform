@@ -11,7 +11,7 @@
 
   {{#chloro-form model=this action='submit' as |f|}}
     {{f.input valuePath='username' autofocus='autofocus' placeholder='your username'}}
-    {{f.input valuePath='password' placeholder='password goes here'}}
+    {{f.input valuePath='password' type='password' placeholder='password goes here'}}
     {{f.submit value="Login" class='button expanded'}}
   {{/chloro-form}}
 </div>
