@@ -1,6 +1,6 @@
 {
   "name": "ember-chloroform",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "The default blueprint for ember-cli addons.",
   "directories": {
     "doc": "doc",
@@ -9,9 +9,13 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember try:each"
+    "test": "ember try:each",
+    "deploy": "ember github-pages:commit --message \"Deploy gh-pages from commit $(git rev-parse HEAD)\"; git push; git checkout -"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:opinioapp/ember-chloroform.git"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },
