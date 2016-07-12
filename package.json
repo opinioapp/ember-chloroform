@@ -51,6 +51,7 @@
     "ember-cli-htmlbars": "1.0.8"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "demoURL": "https://opinioapp.github.io/ember-chloroform/"
   }
 }
